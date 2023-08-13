@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="nav/nav.css">
+    <link rel="stylesheet" href="booking.css">
+    <link rel="stylesheet" href="nav/nav.css">
+    <title>Document</title>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            // fetch('nav/nav.html')
+            //     .then(response => response.text())
+            //     .then(html => {
+            //         document.querySelector('nav').innerHTML = html;
+            //     });
+
+            // Retrieve stored movie title and image from localStorage
+            const selectedMovieTitle = localStorage.getItem('selectedMovieTitle');
+            const selectedMovieImage = localStorage.getItem('selectedMovieImage');
+
+            // Set the retrieved values to the elements on the booking page
+            const movieTitleElement = document.getElementById('selectedMovieTitle');
+            movieTitleElement.textContent = selectedMovieTitle;
+
+            const movieImageElement = document.getElementById('selectedMovieImage');
+            movieImageElement.src = selectedMovieImage;
+        });
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+  <nav>
+    <div class="left">
+        <a href="">
+            <img class="logo" src="component/logo.png" alt="">
+        </a>
+        <ul>
+            <li><a href="">Movies</a></li>
+            <li><a href="">About</a></li>
+            
+        </ul> 
+    </div>
+   
+    <div class="right">
+        <a href="../signIn.html">
+            <div class="signIn">SIGN IN</div>
+        </a>
+        <div><a href="">
+            <img class="search" src="component/search.png" alt="">
+        </a></div>
+    </div>
+</nav>
+
+    <section class="flowBox">
+        <div class="flowOrder">
+          <div class="status"> &#x2713;</div>
+          <div class="text">
+            <h5>Login</h5>
+          </div>
+        </div>
+        <div class="line">
+          <hr>
+        </div>
+        <div class="flowOrder">
+          <div class="status"> 2</div>
+          <div class="text">
+            <h5>Select</h5>
+          </div>
+        </div>
+        <div class="line">
+          <hr>
+        </div>
+        <div class="flowOrder">
+          <div class="status">3</div>
+          <div class="text">
+            <h5>Seat</h5>
+          </div>
+        </div>
+        <div class="line">
+          <hr>
+        </div>
+        <div class="flowOrder">
+          <div class="status">4</div>
+          <div class="text">
+            <h5>food</h5>
+          </div>
+        </div>
+
+        <div class="line">
+            <hr>
+          </div>
+        <div class="flowOrder">
+            <div class="status">5</div>
+            <div class="text">
+              <h5>Pay</h5>
+            </div>
+          </div>
+
+          <div class="line">
+            <hr>
+          </div>
+        <div class="flowOrder">
+            <div class="status">6</div>
+            <div class="text">
+              <h5>Receipt</h5>
+            </div>
+          </div>
+        
+      </section>
+
+    <div class="booking-container">
+
+        <div class="left">
+            <!-- Display the selected movie image -->
+            <img id="selectedMovieImage" src="" alt="Selected Movie Image">
+            <!-- Display the selected movie title -->
+            <h3 id="selectedMovieTitle"></h3>
+            <!-- ... other booking form elements ... -->
+        </div>
+
+        <div class="right">
+            <form id="bookingForm" action="seat.html">
+                <label for="selectDate">Select Date:</label>
+                <input type="date" id="selectDate" name="selectDate" required><br>
+    
+                <label for="selectLocation">Select Location:</label>
+                <select id="selectLocation" name="selectLocation" required>
+                    <option value="location1">Kuala Lumpur - Mid Valley Megamall</option>
+                    <option value="location2">Kuala Lumpur - LaLaport BBCC</option>
+                    <option value="location3">Kuala Lumpur - Berjaya Times Square</option>
+                    <option value="location3">Kuala Lumpur - EkoCheras Mall</option>
+                    <option value="location3">Kuala Lumpur - MyTown</option>
+                    <option value="location3">Kuala Lumpur - Setapak Central</option>
+                    <!-- Add more options as needed -->
+                </select><br>
+    
+                <label for="selectTime">Select Time:</label>
+                <select id="selectTime" name="selectTime" required>
+                    <option value="time1">10:30 AM</option>
+                    <option value="time2">12:35 PM</option>
+                    <option value="time3">02:40 PM</option>
+                    <option value="time3">06:50 PM</option>
+                    <option value="time3">08:55 PM</option>
+                    <option value="time3">11:00 PM</option>
+                    <!-- Add more options as needed -->
+                </select><br>
+    
+                <input type="submit" value="Seat" class="booking-button">
+                </form>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>

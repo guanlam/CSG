@@ -1,0 +1,156 @@
+.container-seat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+    padding: clamp(2%, 2vw, 3%) 0;
+    margin-bottom:4rem;
+   
+
+}
+
+.box-seat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.screen-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    /* Adjust as needed */
+
+    padding-top: 0;
+    /* Half of the container height minus half of the SVG height */
+}
+
+
+
+.screen {
+    background-color: aqua;
+}
+
+
+.chair {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: clamp(.1rem, 3vw, 5rem);
+    margin: clamp(calc(1rem + 2%), 2vw, 3%) 0;
+}
+
+.chair-seat {
+    border: 1.5px solid;
+    padding: clamp(.3rem, 1vw, .7rem);
+}
+
+.title {
+    font-size: clamp(.6rem, 2.5vw, 1rem);
+    font-weight: 700;
+
+}
+
+.detail,
+span {
+    font-size: clamp(.2rem, 2.5vw, .7rem);
+    color: gray;
+}
+
+
+
+.red {
+    background-color: red;
+    color: white;
+}
+
+.orange {
+    background-color: orange;
+    color: white;
+    border: orange;
+}
+
+
+.seat-button{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: orange;
+    width: 100%;
+    border: none;
+    color: white;
+    padding: 1rem 0;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.seat-button:hover{
+    opacity: .5;
+}
+
+
+
+
+
+
+
+
+
+/* flow */
+section.flowBox{
+    margin: calc( 1rem + 1%) auto;
+    display: flex;
+    width: 60%;
+    align-items: center;
+    
+    justify-content: center;
+  }
+  
+  .flowOrder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-basis: 15%;
+    /* background-color: aquamarine; */
+    
+  }
+  
+  .flowOrder .status{
+   
+    color: black;
+    padding: .5rem .8rem;
+    border-radius: 50%;
+    margin-bottom: .5rem;
+
+    border: 1px solid;
+  }
+  .flowOrder:nth-child(1) .status,
+  .flowOrder:nth-child(3) .status,
+  .flowOrder:nth-child(5) .status
+   {
+      /* background-color: var(--main-color); */
+      color: white;
+      background-color: orange;
+     
+  }
+  .flowOrder:nth-child(1) .text h5,
+  .flowOrder:nth-child(3) .text h5,
+  .flowOrder:nth-child(5) .text h5{
+    color: orange;
+  }
+  
+  .line{
+    
+    width: 100%;
+    
+  }

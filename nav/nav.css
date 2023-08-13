@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(.6rem,2.5vw,1rem);
+}
+
+nav{
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+    border-bottom: 1px solid black;
+}
+nav img.logo {
+    height: 4.5rem;
+    width: 5rem;
+}
+
+nav .left{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5%;
+    margin: 0 2%;
+}
+nav ul{
+    display: flex;
+    gap: 5%;
+    margin-left: .3rem;
+    list-style: none;
+}
+nav li a{
+    text-decoration: none;
+    color: black;
+    padding-right: 1rem;
+}
+
+
+
+nav .right{
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap:5%;
+    font-weight: 500;
+    margin: 0 2%;
+}
+
+.right a{
+    text-decoration: none;
+}
+nav .right .signIn{
+
+    border: 1px solid;
+    border-radius: 10px;
+    padding: clamp(.2rem, 2.5vw,.4rem) clamp(.4rem, 2.5vw,.8rem);
+    transition: .4s;
+    background-color: orange;
+    color: white;
+    border: none;
+    
+}
+nav .right .signIn:hover{
+    opacity: .5;
+}
+nav .right img.search{
+    width: 1.5rem;
+    height: 1.5rem;
+    
+    
+}

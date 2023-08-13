@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="stylesheet" href="nav/nav.css">
+    <link rel="stylesheet" href="seat.css">
+    <title>Document</title>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            // fetch('nav/nav.html')
+            //     .then(response => response.text())
+            //     .then(html => {
+            //         document.querySelector('nav').innerHTML = html;
+            //     });
+
+        const selectedMovieTitle = localStorage.getItem('selectedMovieTitle');
+
+        const selectedMovieDuration = localStorage.getItem('selectedMovieDuration');
+
+
+        const movieTitleElement = document.getElementById('selectedMovieTitle');
+        movieTitleElement.textContent = selectedMovieTitle;
+        const durationElement = document.getElementById('duration');
+        durationElement.textContent = selectedMovieDuration;
+
+
+
+
+        const chairSeats = document.querySelectorAll('.chair-seat');
+
+    // Number of seats to turn red
+    const numSeatsToTurnRed = 5;
+
+    // Generate an array of random indices for the seats
+    const randomIndices = [];
+    while (randomIndices.length < numSeatsToTurnRed) {
+        const randomIndex = Math.floor(Math.random() * chairSeats.length);
+        if (!randomIndices.includes(randomIndex)) {
+            randomIndices.push(randomIndex);
+        }
+    }
+
+    // Apply the 'red' class to the randomly selected seats
+    randomIndices.forEach(index => {
+        chairSeats[index].classList.add('red');
+    });
+
+
+    chairSeats.forEach(seat => {
+        seat.addEventListener('click', () => {
+            if (!seat.classList.contains('red')) {
+                seat.classList.toggle('orange');
+            }
+        });
+    });
+
+    });
+    </script>
+</head>
+
+<body>
+  <nav>
+    <div class="left">
+        <a href="">
+            <img class="logo" src="component/logo.png" alt="">
+        </a>
+        <ul>
+            <li><a href="">Movies</a></li>
+            <li><a href="">About</a></li>
+            
+        </ul> 
+    </div>
+   
+    <div class="right">
+        <a href="../signIn.html">
+            <div class="signIn">SIGN IN</div>
+        </a>
+        <div><a href="">
+            <img class="search" src="component/search.png" alt="">
+        </a></div>
+    </div>
+</nav>
+
+
+
+    <section class="flowBox">
+        <div class="flowOrder">
+          <div class="status"> &#x2713;</div>
+          <div class="text">
+            <h5>Login</h5>
+          </div>
+        </div>
+        <div class="line">
+          <hr>
+        </div>
+        <div class="flowOrder">
+          <div class="status"> &#x2713;</div>
+          <div class="text">
+            <h5>Select</h5>
+          </div>
+        </div>
+        <div class="line">
+          <hr>
+        </div>
+        <div class="flowOrder">
+          <div class="status">3</div>
+          <div class="text">
+            <h5>Seat</h5>
+          </div>
+        </div>
+        <div class="line">
+          <hr>
+        </div>
+        <div class="flowOrder">
+          <div class="status">4</div>
+          <div class="text">
+            <h5>food</h5>
+          </div>
+        </div>
+
+        <div class="line">
+            <hr>
+          </div>
+        <div class="flowOrder">
+            <div class="status">5</div>
+            <div class="text">
+              <h5>Pay</h5>
+            </div>
+          </div>
+
+          <div class="line">
+            <hr>
+          </div>
+        <div class="flowOrder">
+            <div class="status">6</div>
+            <div class="text">
+              <h5>Receipt</h5>
+            </div>
+          </div>
+        
+      </section>
+
+    <div class="container-seat">
+        <div class="box-seat">
+            <div class="title" id="selectedMovieTitle"></div>
+            <div class="detail">ENG |<span id="duration"></span>| 2D</div>
+        </div>
+        <div class="box-screen">
+        
+                <div class="screen-container">
+                    <svg width="500" height="400">
+                      <path d="M50,250 Q250,150 450,250" fill="none" stroke="black" stroke-width="2" />
+                    </svg>
+                  </div>
+                  
+                  
+              
+            <h6>Screen</h6>
+        </div>
+
+
+        <div class="chair">
+            <div class="chair-seat">A1</div>
+            <div class="chair-seat">A2</div>
+            <div class="chair-seat">A3</div>
+            <div class="chair-seat">A4</div>
+            <div class="chair-seat">A5</div>
+            <div class="chair-seat">A6</div>
+            <div class="chair-seat">A7</div>
+            <div class="chair-seat">A8</div>
+            <div class="chair-seat">B1</div>
+            <div class="chair-seat">B2 </div>
+            <div class="chair-seat">B3</div>
+            <div class="chair-seat">B4</div>
+            <div class="chair-seat">B5</div>
+            <div class="chair-seat">B6</div>
+            <div class="chair-seat">B7</div>
+            <div class="chair-seat">B8</div>
+            <div class="chair-seat">C1</div>
+            <div class="chair-seat">C2</div>
+            <div class="chair-seat">C3</div>
+            <div class="chair-seat">C4</div>
+            <div class="chair-seat">C5</div>
+            <div class="chair-seat">C6</div>
+            <div class="chair-seat">C7</div>
+            <div class="chair-seat">C8</div>
+        </div>
+    </div>
+
+    <button class="seat-button" onclick="window.location.href = 'food.html';">CONFIRM</button>
+
+</body>
+
+</html>

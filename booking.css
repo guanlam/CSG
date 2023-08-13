@@ -1,0 +1,119 @@
+.booking-container{
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    margin-bottom: 5%;
+    
+}
+
+.booking-container .left{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+    height: 100vh;
+   
+    padding: clamp(1.5rem,2.5vw,3rem)
+    clamp(1rem,2.5vw,2rem);
+}
+.booking-container .left img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+.booking-container .right{
+    padding: clamp(1.5rem,2.5vw,3rem)
+    clamp(1rem,2.5vw,2rem);
+ 
+}
+
+form#bookingForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    
+
+
+    
+}
+
+.booking-button{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 1rem 0;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.booking-button:hover{
+    opacity: .8;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* flow */
+section.flowBox{
+    margin: calc( 1rem + 5%) auto;
+    display: flex;
+    width: 60%;
+    align-items: center;
+    
+    justify-content: center;
+  }
+  
+  .flowOrder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-basis: 15%;
+    /* background-color: aquamarine; */
+    
+  }
+  
+  .flowOrder .status{
+   
+    color: black;
+    padding: .5rem .8rem;
+    border-radius: 50%;
+    margin-bottom: .5rem;
+
+    border: 1px solid;
+  }
+  .flowOrder:nth-child(1) .status,
+  .flowOrder:nth-child(3) .status
+   {
+      /* background-color: var(--main-color); */
+      color: white;
+      background-color: orange;
+     
+  }
+  .flowOrder:nth-child(1) .text h5,
+  .flowOrder:nth-child(3) .text h5{
+    color: orange;
+  }
+  
+  .line{
+    
+    width: 100%;
+    
+  }

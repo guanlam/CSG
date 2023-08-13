@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="nav/nav.css">
+  <link rel="stylesheet" href="food.css">
+  <title>Document</title>
+  <script>
+    // window.addEventListener('DOMContentLoaded', () => {
+    //   // ... your existing code ...
+    //   fetch('nav/nav.html')
+    //     .then(response => response.text())
+    //     .then(html => {
+    //       document.querySelector('nav').innerHTML = html;
+    //     });
+    // });
+  </script>
+</head>
+
+<body>
+  <nav>
+    <div class="left">
+        <a href="">
+            <img class="logo" src="component/logo.png" alt="">
+        </a>
+        <ul>
+            <li><a href="">Movies</a></li>
+            <li><a href="">About</a></li>
+            
+        </ul> 
+    </div>
+   
+    <div class="right">
+        <a href="../signIn.html">
+            <div class="signIn">SIGN IN</div>
+        </a>
+        <div><a href="">
+            <img class="search" src="component/search.png" alt="">
+        </a></div>
+    </div>
+</nav>
+
+  <section class="flowBox">
+    <div class="flowOrder">
+      <div class="status"> &#x2713;</div>
+      <div class="text">
+        <h5>Login</h5>
+      </div>
+    </div>
+    <div class="line">
+      <hr>
+    </div>
+    <div class="flowOrder">
+      <div class="status"> &#x2713;</div>
+      <div class="text">
+        <h5>Select</h5>
+      </div>
+    </div>
+    <div class="line">
+      <hr>
+    </div>
+    <div class="flowOrder">
+      <div class="status">&#x2713;</div>
+      <div class="text">
+        <h5>Seat</h5>
+      </div>
+    </div>
+    <div class="line">
+      <hr>
+    </div>
+    <div class="flowOrder">
+      <div class="status">4</div>
+      <div class="text">
+        <h5>food</h5>
+      </div>
+    </div>
+
+    <div class="line">
+      <hr>
+    </div>
+    <div class="flowOrder">
+      <div class="status">5</div>
+      <div class="text">
+        <h5>Pay</h5>
+      </div>
+    </div>
+
+    <div class="line">
+      <hr>
+    </div>
+    <div class="flowOrder">
+      <div class="status">6</div>
+      <div class="text">
+        <h5>Receipt</h5>
+      </div>
+    </div>
+
+  </section>
+
+
+
+
+  <section class="food">
+    <div class="wrap-food">
+      <div class="container-food">
+        <img src="component/pocorn.png" alt="">
+        <div class="title-food">Popcorn RM 8</div>
+        <div class="qty-food">
+          <button>-</button><span>0</span><button>+</button>
+        </div>
+      </div>
+
+      <div class="container-food">
+        <img src="component/drink.png" alt="">
+        <div class="title-food">Drink RM 6</div>
+        <div class="qty-food">
+          <button>-</button><span>0</span><button>+</button>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="wrap-total">
+        total
+      </div> -->
+
+  </section>
+
+  <button class="seat-button" onclick="window.location.href = 'food.html';">NEXT</button>
+
+
+</body>
+
+</html>

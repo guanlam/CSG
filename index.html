@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="nav/nav.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <nav>
+    <div class="left">
+        <a href="">
+            <img class="logo" src="component/logo.png" alt="">
+        </a>
+        <ul>
+            <li><a href="">Movies</a></li>
+            <li><a href="">About</a></li>
+            
+        </ul> 
+    </div>
+   
+    <div class="right">
+        <a href="../signIn.html">
+            <div class="signIn">SIGN IN</div>
+        </a>
+        <div><a href="">
+            <img class="search" src="component/search.png" alt="">
+        </a></div>
+    </div>
+</nav>
+
+
+  <div class="movieContainer">
+    <h3>Now showing</h3>
+
+    <section class="top-product">
+
+      <div class="product-width">
+        <div class="main-scroll-div">
+
+          <div class="card">
+            <div class="content">
+              <div class="card-img">
+
+                <img src="moviePoster/movie1.webp">
+                <div class="title">The Marvels</div>
+                <div class="duration">2h 15m</div>
+
+
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="content">
+              <div class="card-img">
+
+                <img src="moviePoster/movie2.webp">
+                <div class="title">The Conjuring</div>
+                <div class="duration">2h 10m</div>
+
+
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="content">
+              <div class="card-img">
+
+                <img src="moviePoster/movie3.webp">
+                <div class="title">Death Notice</div>
+                <div class="duration">2h 30m</div>
+
+              </div>
+            </div>
+          </div>
+
+
+          <div class="card">
+            <div class="content">
+              <div class="card-img">
+
+                <img src="moviePoster/movie4.webp">
+                <div class="title">The Equalizer 3</div>
+                <div class="duration">2h 20m</div>
+
+
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="content">
+              <div class="card-img">
+
+                <img src="moviePoster/movie5.jpg">
+                <div class="title">Trolls Band Together</div>
+                <div class="duration">1h 45m</div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="content">
+              <div class="card-img">
+
+                <img src="moviePoster/movie6.jpg">
+                <div class="title">The Dark Knight</div>
+                <div class="duration">2h 32m</div>
+
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="content">
+              <div class="card-img">
+
+                <img src="moviePoster/movie7.jpg">
+                <div class="title">The Nun 2</div>
+                <div class="duration">2h 5m</div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+
+
+
+
+        <script defer>
+          window.addEventListener('DOMContentLoaded', () => {
+            // ... your existing code ...
+            // fetch('nav/nav.html')
+            //   .then(response => response.text())
+            //   .then(html => {
+            //     document.querySelector('nav').innerHTML = html;
+            //   });
+
+
+
+
+
+            // // fetch image
+            // fetch('movies.json')
+            //   .then(response => response.json())
+            //   .then(movies => {
+            //     const movieContainer = document.querySelector('.main-scroll-div');
+            //     movies.forEach(movie => {
+            //       const card = document.createElement('div');
+            //       card.classList.add('card');
+
+            //       const content = document.createElement('div');
+            //       content.classList.add('content');
+
+            //       const cardImg = document.createElement('div');
+            //       cardImg.classList.add('card-img');
+            //       const img = document.createElement('img');
+            //       img.src = movie.image;
+            //       cardImg.appendChild(img);
+
+            //       const title = document.createElement('div');
+            //       title.classList.add('title');
+            //       title.textContent = movie.name;
+
+            //       cardImg.appendChild(title);
+            //       content.appendChild(cardImg);
+            //       card.appendChild(content);
+
+            //       movieContainer.appendChild(card);
+            //     });
+            //   });
+
+
+
+
+
+
+
+          });
+
+
+          //product
+          const container = document.querySelector('.product-width');
+          let isDown = false;
+          let startX;
+          let scrollLeft;
+
+          container.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+          });
+
+          container.addEventListener('mouseleave', () => {
+            isDown = false;
+          });
+
+          container.addEventListener('mouseup', () => {
+            isDown = false;
+          });
+
+          container.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - container.offsetLeft;
+            const walk = (x - startX) * 3; // multiplier to adjust the swipe speed
+            container.scrollLeft = scrollLeft - walk;
+          });
+
+
+
+          const movieCards = document.querySelectorAll('.card-img');
+
+          movieCards.forEach(card => {
+            card.addEventListener('click', () => {
+              const movieTitle = card.querySelector('.title').textContent;
+              const movieImage = card.querySelector('img').src;
+              const movieDuration = card.querySelector('.duration').textContent; // Get the duration
+              localStorage.setItem('selectedMovieTitle', movieTitle);
+              localStorage.setItem('selectedMovieImage', movieImage);
+              localStorage.setItem('selectedMovieDuration', movieDuration); // Store the duration
+              window.location.href = 'booking.html';
+
+            });
+          });
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+</body>
+
+</html>
