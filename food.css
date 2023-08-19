@@ -58,6 +58,22 @@ section.flowBox{
     
     justify-content: center;
     margin-bottom: 4rem;
+    position: relative;
+   
+  }
+
+  section.food .return{
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 5%;
+    left: 20%;
+    cursor: pointer;
+  }
+  section.food .return img{
+    width: clamp(2rem,2.5vw,3rem);
+    height: clamp(2rem,2.5vw,3rem);
+    
   }
 
   section.food .wrap-food{
@@ -90,13 +106,13 @@ section.flowBox{
     margin: 0 .3rem;    
 }
   .container-food img{
-    height: 300px;
-    width: 300px;
+    height: 250px;
+    width: 250px;
   }
   
-  .title-food{
+  /* .title-food{
     margin: 0 2%;
-  }
+  } */
 
  
  .wrap-food{
@@ -104,7 +120,9 @@ section.flowBox{
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    margin: 0 5%;
+    /* margin: 0 5%; */
+    /* background-color: antiquewhite; */
+    padding: clamp(.1rem,2.5vw,3rem);
     
   }
   /* .wrap-total{
@@ -138,7 +156,14 @@ section.flowBox{
         flex-direction: column;
     }
     .container-food img{
-        height: 200px;
-        width: 200px;
+        height: 150px;
+        width: 150px;
       }
+
+      section.food .return {
+        top: 0%;
+        left: 1rem;
   }
+
+
+}

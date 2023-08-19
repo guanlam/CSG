@@ -3,7 +3,26 @@
     justify-content: center;
     gap: 5%;
     margin-bottom: 5%;
+    /* background-color: antiquewhite; */
+    position: relative;
+    /* border-top: 1px solid; */
     
+}
+
+.booking-container .return {
+  position: absolute;
+  top: 5%;
+  left: 20%;
+  border: none;
+  
+  background-color: transparent;
+  /* padding: clamp(1.5rem,2.5vw,3rem) 0; */
+  cursor: pointer;
+}
+.booking-container .return img{
+  width: clamp(2rem,2.5vw,3rem);
+  height: clamp(2rem,2.5vw,3rem);
+  
 }
 
 .booking-container .left{
@@ -11,9 +30,9 @@
    align-items: center;
    justify-content: center;
    flex-direction: column;
-    height: 100vh;
+    height: 80vh;
    
-    padding: clamp(1.5rem,2.5vw,3rem)
+    padding: clamp(1rem,2.5vw,3rem)
     clamp(1rem,2.5vw,2rem);
 }
 .booking-container .left img{
@@ -78,6 +97,7 @@ section.flowBox{
     align-items: center;
     
     justify-content: center;
+    
   }
   
   .flowOrder{
@@ -116,4 +136,25 @@ section.flowBox{
     
     width: 100%;
     
+  }
+
+  @media (max-width: 900px){
+
+    .booking-container .left{
+      text-align: center;
+       height: 50vh;    
+       padding: clamp(1rem,2.5vw,3rem)
+       clamp(.5rem,2.5vw,2rem);
+   }
+
+   .booking-container .return {
+    top: 0%;
+    left: 1rem;
+    
+    
+  
+  }
+
+   
+
   }
