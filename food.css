@@ -138,7 +138,7 @@ section.flowBox{
     left: 0;
     background-color: orange;
     width: 100%;
-    height: 10%;
+    /* height: 10%; */
     border: none;
     color: white;
     padding: 1rem 0;
@@ -151,6 +151,9 @@ section.flowBox{
 }
 
 
+button{
+  cursor: pointer;
+}
 
 @media (max-width: 900px) {
     section.food .wrap-food{

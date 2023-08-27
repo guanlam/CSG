@@ -33,7 +33,7 @@
         const chairSeats = document.querySelectorAll('.chair-seat');
 
     // Number of seats to turn red
-    const numSeatsToTurnRed = 5;
+    const numSeatsToTurnRed = 8;
 
     // Generate an array of random indices for the seats
     const randomIndices = [];
@@ -50,13 +50,42 @@
     });
 
 
+
+ const selectedSeats = [];
     chairSeats.forEach(seat => {
         seat.addEventListener('click', () => {
             if (!seat.classList.contains('red')) {
                 seat.classList.toggle('orange');
+                const seatId = seat.textContent;
+                const index = selectedSeats.indexOf(seatId);
+                if (index === -1) {
+                    selectedSeats.push(seatId);
+                } else {
+                    selectedSeats.splice(index, 1);
+                }
+                updateConfirmButton();
+                localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
             }
         });
     });
+
+
+
+
+   
+
+
+
+function updateConfirmButton() {
+    const confirmButton = document.querySelector('.seat-button');
+    const numTickets = selectedSeats.length;
+    const totalCost = numTickets * 10; // Assuming each seat costs RM 10
+    confirmButton.innerText = `CONFIRM\n${numTickets} Ticket(s) RM ${totalCost}`;
+
+}
+
+
+    
 
     });
     </script>

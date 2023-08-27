@@ -67,7 +67,10 @@
     gap: clamp(.1rem, 3vw, 5rem);
     margin: clamp(calc(1rem + 2%), 2vw, 3%) 0;
 }
-
+.chair div{
+    cursor: pointer;
+    user-select: none;
+}
 .chair-seat {
     border: 1.5px solid;
     padding: clamp(.3rem, 1vw, .7rem);
@@ -105,7 +108,7 @@ span {
     left: 0;
     background-color: orange;
     width: 100%;
-    height: 10%;
+    /* height: 10%; */
     border: none;
     color: white;
     padding: 1rem 0;
