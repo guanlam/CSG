@@ -75,3 +75,18 @@ nav .right img.search{
     
     
 }
+
+.logOut{
+    display: block;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: clamp(.2rem, 2.5vw,.4rem) clamp(.4rem, 2.5vw,.8rem);
+    transition: .4s;
+    color: black;
+    border: 1px solid;
+    cursor: pointer;
+    
+}
+.logOut:hover{
+    opacity: .5;
+}

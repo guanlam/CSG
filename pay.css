@@ -189,8 +189,8 @@ section.flowBox{
 
 .return-icon{
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 20%;
+  left: 2%;
   
   
 }
@@ -209,7 +209,7 @@ section.flowBox{
     
     flex-direction: column;
     min-width: 60vw;
-    min-height: 60vh;
+    min-height: 75vh;
     background-color:white;
     
     display: flex;
@@ -223,12 +223,16 @@ section.flowBox{
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  position: relative;
+  width: 80%;
+  border: 1px solid;
+  border-top: none;
+  /* position: relative; */
+  /* margin-bottom: calc(1rem + 5%); */
 }
 
 .flex-payment{
   display: flex;
-  
+  justify-content: space-between;
   align-items: stretch;
   gap: clamp(.5rem,2.5vw, 1rem);
 }
@@ -335,5 +339,47 @@ section.flowBox{
 }
 
 
+/* credit card icon */
+.box-payment .top{
+  padding: clamp(1rem,2.4vw,1.2rem);
+  width: 80%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid;
+  
+  
+}
 
+.top .top-left{
+  display: flex;
+  flex: .6;
+}
+.top .top-left input[type=radio]{
+  margin-right: calc(.2rem + 5%);
+}
+.top h3{
+  margin-right: calc(.1rem + 2%);
+  
+}
+.top img{
+  width: 2rem;
+  height: 2rem;
+  margin-right: .1rem;
+}
+
+.top-right{
+  display: flex;
+  justify-content: flex-end;
+  flex: .4;
+  /* background-color: antiquewhite; */
+}
+
+
+input[type=text]{
+  padding:clamp(.2rem,2.4vw,.3rem) clamp(.4rem,2.4vw,.5rem);
+  
+  
+}
 

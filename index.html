@@ -6,35 +6,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="home.css">
   <link rel="stylesheet" href="nav/nav.css">
+
   <title>Document</title>
 </head>
 
 <body>
   <nav>
     <div class="left">
-        <a href="">
-            <img class="logo" src="component/logo.png" alt="">
-        </a>
-        <ul>
-            <li><a href="">Movies</a></li>
-            <li><a href="">About</a></li>
-            
-        </ul> 
+      <a href="index.html">
+        <img class="logo" src="component/logo.png" alt="">
+      </a>
+      <ul>
+        <li><a href="index.html">Movies</a></li>
+        <li><a href="about.html">About</a></li>
+
+      </ul>
     </div>
-   
+
     <div class="right">
-        <a href="signIn.html">
-            <div class="signIn">SIGN IN</div>
-        </a>
-        <div><a href="">
-            <img class="search" src="component/search.png" alt="">
+
+      <div class="logOut" onclick="appearLogOut();">Log Out</div>
+
+      <a href="signIn.html">
+        <div class="signIn">SIGN IN</div>
+      </a>
+      <div><a href="">
+          <img class="search" src="component/search.png" alt="">
         </a></div>
     </div>
-</nav>
+  </nav>
 
 
   <div class="movieContainer">
-    <h3>Now showing</h3>
+    <h2>Now showing</h2>
 
     <section class="top-product">
 
@@ -131,59 +135,52 @@
         </div>
 
 
+        <section class="feeback-login">
+          <div class="box-login">
 
+            <div class="box">
+
+
+              <h4>Are you sure want to log out</h4>
+
+              <div class="logOut-button">
+                <button>Cancel</button>
+                <button>Confirm</button>
+              </div>
+
+            </div>
+          </div>
+        </section>
 
 
 
         <script defer>
+          function appearLogOut(){
+            const appear = document.querySelector('.feeback-login');
+            appear.style.display = 'block';
+          }
+          const signInButton = document.querySelector('.signIn'); // Select the "SIGN IN" button
+          const logOutButton = document.querySelector('.logOut'); // Select the "Log Out" button
+
           window.addEventListener('DOMContentLoaded', () => {
-            // ... your existing code ...
-            // fetch('nav/nav.html')
-            //   .then(response => response.text())
-            //   .then(html => {
-            //     document.querySelector('nav').innerHTML = html;
-            //   });
 
+            if (signInButton.textContent == "SIGN IN") {
+            logOutButton.style.display = 'none'; // Display the "Log Out" button if the user is logged in
+          }else{
+            logOutButton.style.display = 'block';
+          }
+          });
+          
 
+          const confirmButton = document.querySelector('.box-login button:last-child'); // Select the "Confirm" button
 
-
-
-            // // fetch image
-            // fetch('movies.json')
-            //   .then(response => response.json())
-            //   .then(movies => {
-            //     const movieContainer = document.querySelector('.main-scroll-div');
-            //     movies.forEach(movie => {
-            //       const card = document.createElement('div');
-            //       card.classList.add('card');
-
-            //       const content = document.createElement('div');
-            //       content.classList.add('content');
-
-            //       const cardImg = document.createElement('div');
-            //       cardImg.classList.add('card-img');
-            //       const img = document.createElement('img');
-            //       img.src = movie.image;
-            //       cardImg.appendChild(img);
-
-            //       const title = document.createElement('div');
-            //       title.classList.add('title');
-            //       title.textContent = movie.name;
-
-            //       cardImg.appendChild(title);
-            //       content.appendChild(cardImg);
-            //       card.appendChild(content);
-
-            //       movieContainer.appendChild(card);
-            //     });
-            //   });
-
-
-
-
-
-
-
+          confirmButton.addEventListener('click', function () {
+            // Clear user data from local storage (log out)
+            localStorage.removeItem('userData');
+            
+            
+            // Redirect the user to the index.html page
+            window.location.href = 'index.html';
           });
 
 
@@ -237,6 +234,13 @@
 
 
 
+          // Retrieve the user's name from local storage
+          const storedUserDataJSON = localStorage.getItem('userData');
+          if (storedUserDataJSON) {
+            const storedUserData = JSON.parse(storedUserDataJSON);
+            const userSignInButton = document.querySelector('.signIn'); // Select the "SIGN IN" element
+            userSignInButton.textContent = storedUserData.name;
+          }
 
 
 

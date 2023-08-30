@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="home.css">
     <title>Document</title>
 
-    <script defer src="signIn.js"></script>
+    <!-- <script defer src="signIn.js"></script> -->
 
     <script>
       //   window.addEventListener('DOMContentLoaded', () => {
@@ -19,6 +19,42 @@
       //          });
       //  });
 
+      document.addEventListener('DOMContentLoaded', function () {
+    const registrationForm = document.getElementById('registrationForm');
+
+    registrationForm.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        const name = document.getElementById('name').value;
+        const phoneNumber = document.getElementById('phoneNumber').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        // Additional validation can be done here
+
+        // Create an object to store the user data
+        const userData = {
+            name: name,
+            phoneNumber: phoneNumber,
+            email: email,
+            password: password
+        };
+
+        // Convert the object to a JSON string
+        const userDataJSON = JSON.stringify(userData);
+
+        // Store the user data in local storage
+        localStorage.setItem('userData', userDataJSON);
+
+        // You can also send the data to a server using AJAX or fetch if needed
+
+        // Display a success message or redirect the user
+        alert('Sign-up successful! You can now sign in.');
+
+        // Reset the form
+        registrationForm.reset();
+    });
+});
 
 
       
@@ -33,14 +69,14 @@
 <body>
   <nav>
     <div class="left">
-        <a href="">
-            <img class="logo" src="component/logo.png" alt="">
-        </a>
-        <ul>
-            <li><a href="">Movies</a></li>
-            <li><a href="">About</a></li>
-            
-        </ul> 
+      <a href="index.html">
+        <img class="logo" src="component/logo.png" alt="">
+      </a>
+      <ul>
+        <li><a href="index.html">Movies</a></li>
+        <li><a href="about.html">About</a></li>
+
+      </ul>
     </div>
    
     <div class="right">
@@ -169,19 +205,19 @@
                         <div class="signUp">
                           <br>
                             <label for="name">Name</label>
-                        <input type="text" id="name" name="name" ><br>
+                        <input type="text" id="name" name="name" required><br>
                         
                         <label for="phoneNumber">Phone Number</label>
-                        <input type="tel" id="phoneNumber" name="phoneNumber" ><br>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" required><br>
                         
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" ><br>
+                        <input type="email" id="email" name="email" required><br>
                         
                         <label for="password">Password</label>
-                        <input type="password" id="password" name="password" ><br>
+                        <input type="password" id="password" name="password" required><br>
                         
                         <label for="retypePassword">Retype Password</label>
-                        <input type="password" id="retypePassword" name="retypePassword" >
+                        <input type="password" id="retypePassword" name="retypePassword" required>
                         
                         <input type="submit" value="SUMBIT" class="submitCss">
                         </div>

@@ -1,235 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="nav/nav.css">
-    <link rel="stylesheet" href="signIn.css">
-    <link rel="stylesheet" href="home.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="nav/nav.css">
+  <link rel="stylesheet" href="signIn.css">
+  <link rel="stylesheet" href="home.css">
+  <title>Document</title>
 
-    <script defer src="signIn.js"></script>
+  <script defer src="signIn.js"></script>
 
-    <script>
-      //   window.addEventListener('DOMContentLoaded', () => {
-      //      fetch('nav/nav.html')
-      //          .then(response => response.text())
-      //          .then(html => {
-      //              document.querySelector('nav').innerHTML = html;
-      //          });
-      //  });
+  <script>
 
 
 
-       const registrationForm = document.getElementById('registrationForm');
+
+document.addEventListener('DOMContentLoaded', function () {
+    const registrationForm = document.getElementById('registrationForm');
+    const feedbackLoginSection = document.querySelector('.feeback-login');
+    const userSignInButton = document.querySelector('.signIn'); // Select the "SIGN IN" element
+
+    registrationForm.addEventListener('submit', function () {
+        const phoneNumber = document.getElementById('phoneNumber').value;
+        const password = document.getElementById('password').value;
+
+        // Retrieve user data from local storage
+        const storedUserDataJSON = localStorage.getItem('userData');
+        if (storedUserDataJSON) {
+            const storedUserData = JSON.parse(storedUserDataJSON);
+            // Compare the entered credentials with stored data
+            if (phoneNumber === storedUserData.phoneNumber && password === storedUserData.password) {
+                // Successful login
+                feedbackLoginSection.style.display = 'block';
+                // Update the "SIGN IN" text with the user's name
+                userSignInButton.textContent = storedUserData.name;
+            } else {
+                // Failed login
+                const invalid = document.querySelector('.invalid');
+                invalid.style.display = 'block';
+            }
+        } else {
+            // User data not found
+            alert('User data not found. Please sign up first.');
+        }
+    });
+});
 
 
 
-    function feebackLogin(){
-       const feedbackLoginSection = document.querySelector('.feeback-login');
-    feedbackLoginSection.style.display = 'block'; 
+    function toggleInvalid() {
+        const feedbackLoginSection = document.querySelector('.invalid');
+        feedbackLoginSection.style.display = feedbackLoginSection.style.display === 'block' ? 'none' : 'block';
+      }
+
+
+
+  </script>
+  <style>
+    .box-content .up a:first-child {
+      border-bottom: 2px solid orange;
+      color: orange;
     }
-    
 
-
-
-
-      
-
-   </script>
-   <style>
-    .box-content .up a:first-child{
-    border-bottom: 2px solid orange;
-    color: orange;
-}
-.box-content .up a:last-child{
-    border-bottom: none;
-    color: black;
-}
-   </style>
+    .box-content .up a:last-child {
+      border-bottom: none;
+      color: black;
+    }
+  </style>
 </head>
+
 <body>
   <nav>
     <div class="left">
-        <a href="">
-            <img class="logo" src="component/logo.png" alt="">
-        </a>
-        <ul>
-            <li><a href="">Movies</a></li>
-            <li><a href="">About</a></li>
-            
-        </ul> 
+      <a href="index.html">
+        <img class="logo" src="component/logo.png" alt="">
+      </a>
+      <ul>
+        <li><a href="index.html">Movies</a></li>
+        <li><a href="about.html">About</a></li>
+
+      </ul>
     </div>
-   
+
     <div class="right">
-        <a href="signIn.html">
-            <div class="signIn">SIGN IN</div>
-        </a>
-        <div><a href="">
-            <img class="search" src="component/search.png" alt="">
+      <a href="signIn.html">
+        <div class="signIn">SIGN IN</div>
+      </a>
+      <div><a href="">
+          <img class="search" src="component/search.png" alt="">
         </a></div>
     </div>
-</nav>
+  </nav>
 
 
 
 
-    <div class="movieContainer">
-        <h3>Now showing</h3>
+  <div class="movieContainer">
+    <h3>Now showing</h3>
 
-        <section class="top-product">
-           
-            <div class="product-width">
-              <div class="main-scroll-div">
+    <section class="top-product">
 
-                <div class="card">
-                  <div class="content">
-                    <div class="card-img">
-      
-                      <img src="moviePoster/movie1.webp">
-                      <div class="title">The Marvels</div>
-                      <div class="duration">2h 15m</div>
-      
-      
-                    </div>
-                  </div>
-                </div>
-      
-                <div class="card">
-                  <div class="content">
-                    <div class="card-img">
-      
-                      <img src="moviePoster/movie2.webp">
-                      <div class="title">The Conjuring</div>
-                      <div class="duration">2h 10m</div>
-      
-      
-                    </div>
-                  </div>
-                </div>
-      
-                <div class="card">
-                  <div class="content">
-                    <div class="card-img">
-      
-                      <img src="moviePoster/movie3.webp">
-                      <div class="title">Death Notice</div>
-                      <div class="duration">2h 30m</div>
-      
-                    </div>
-                  </div>
-                </div>
-      
-      
-                <div class="card">
-                  <div class="content">
-                    <div class="card-img">
-      
-                      <img src="moviePoster/movie4.webp">
-                      <div class="title">The Equalizer 3</div>
-                      <div class="duration">2h 20m</div>
-      
-      
-                    </div>
-                  </div>
-                </div>
-      
-                <div class="card">
-                  <div class="content">
-                    <div class="card-img">
-      
-                      <img src="moviePoster/movie5.jpg">
-                      <div class="title">Trolls Band Together</div>
-                      <div class="duration">1h 45m</div>
-      
-                    </div>
-                  </div>
-                </div>
-      
-                <div class="card">
-                  <div class="content">
-                    <div class="card-img">
-      
-                      <img src="moviePoster/movie6.jpg">
-                      <div class="title">The Dark Knight</div>
-                      <div class="duration">2h 32m</div>
-      
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="content">
-                    <div class="card-img">
-      
-                      <img src="moviePoster/movie7.jpg">
-                      <div class="title">The Nun 2</div>
-                      <div class="duration">2h 5m</div>
-      
-                    </div>
-                  </div>
-                </div>
-           </div>
-    
-    
-        <section class="successful">
-    
-            <div class="box-successful">
-             
-              <div class="box-content">
-              <a href="index.html"><button class="return"><img src="component/return.png" alt=""></button>
-               </a>
-               
-                <div class="up">
-                    <a href="signIn.html">Sign In</a>
-                    <a href="signUp.html">Sign Up</a>
-                </div>
-                
-                <div class="down">
-                    <form id="registrationForm" class="signUpForm" onsubmit="return false;">
-                        <div class="signUp">
-            
-                        
-                        <label for="phoneNumber">Phone Number</label>
-                        <input type="tel" id="phoneNumber" name="phoneNumber"><br>
-                        
-                       
-                        
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password"><br>
-                        
-                       
-                        <input type="submit" value="LOG IN" class="submitCss" onclick="feebackLogin()">
-                        </div>
-                        
-                    </form>
-                </div>
+      <div class="product-width">
+        <div class="main-scroll-div">
 
-                
-            
-          
+          <div class="card">
+            <div class="content">
+              <div class="card-img">
+
+                <img src="moviePoster/movie1.webp">
+                <div class="title">The Marvels</div>
+                <div class="duration">2h 15m</div>
+
+
               </div>
-              
             </div>
-            
-          </section>
+          </div>
 
-          <section class="feeback-login">
-            <div class="box-login">
-             
-                <div class="box">
-                    <div class="tick">
-                        <img src="component/tick.png" alt="">
-                    <h4>Successful login</h4>
-                    </div>
-                    
-                    <button><a href="index.html">OK</a></button>
-                </div>
+          <div class="card">
+            <div class="content">
+              <div class="card-img">
+
+                <img src="moviePoster/movie2.webp">
+                <div class="title">The Conjuring</div>
+                <div class="duration">2h 10m</div>
+
+
+              </div>
             </div>
-          </section>
-          
+          </div>
+
+          <div class="card">
+            <div class="content">
+              <div class="card-img">
+
+                <img src="moviePoster/movie3.webp">
+                <div class="title">Death Notice</div>
+                <div class="duration">2h 30m</div>
+
+              </div>
+            </div>
+          </div>
+
+
+          <div class="card">
+            <div class="content">
+              <div class="card-img">
+
+                <img src="moviePoster/movie4.webp">
+                <div class="title">The Equalizer 3</div>
+                <div class="duration">2h 20m</div>
+
+
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="content">
+              <div class="card-img">
+
+                <img src="moviePoster/movie5.jpg">
+                <div class="title">Trolls Band Together</div>
+                <div class="duration">1h 45m</div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="content">
+              <div class="card-img">
+
+                <img src="moviePoster/movie6.jpg">
+                <div class="title">The Dark Knight</div>
+                <div class="duration">2h 32m</div>
+
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="content">
+              <div class="card-img">
+
+                <img src="moviePoster/movie7.jpg">
+                <div class="title">The Nun 2</div>
+                <div class="duration">2h 5m</div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <section class="successful">
+
+          <div class="box-successful">
+
+            <div class="box-content">
+              <a href="index.html"><button class="return"><img src="component/return.png" alt=""></button>
+              </a>
+
+              <div class="up">
+                <a href="signIn.html">Sign In</a>
+                <a href="signUp.html">Sign Up</a>
+              </div>
+
+              <div class="down">
+                <form id="registrationForm" class="signUpForm" onsubmit="return false;">
+                  <div class="signUp">
+
+
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber"><br>
 
 
 
-   
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password"><br>
+
+
+                    <input type="submit" value="LOG IN" class="submitCss" onclick="feebackLogin()">
+                  </div>
+
+                </form>
+              </div>
+
+
+
+
+            </div>
+
+          </div>
+
+        </section>
+
+        <section class="feeback-login">
+          <div class="box-login">
+
+            <div class="box">
+              <div class="tick">
+                <img src="component/tick.png" alt="">
+                <h4>Successful login</h4>
+              </div>
+
+              <button><a href="index.html">OK</a></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="invalid">
+          <div class="invalid-date">
+
+            <div class="box">
+              <div class="tick">
+                <img src="component/error.png" alt="">
+                <h4>Incorrect number / password</h4>
+              </div>
+
+              <button onclick="toggleInvalid()"><a>OK</a></button>
+            </div>
+          </div>
+        </section>
+
+
+
+
+
 </body>
+
 </html>
