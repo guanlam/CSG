@@ -70,6 +70,17 @@
     });
 
 
+    const confirmButton = document.querySelector('.seat-button');
+    const feedbackLoginSection = document.querySelector('.feeback-login');
+    confirmButton.addEventListener('click', function () {
+        const selectedSeats = Array.from(chairSeats).filter(seat => seat.classList.contains('orange'));
+
+        if (selectedSeats.length === 0) {
+            feedbackLoginSection.style.display = 'block'; // Display feedback-login section
+        } else {
+            window.location.href = 'food.html'; // Redirect to the next page
+        }
+    });
 
 
    
@@ -223,7 +234,26 @@ function updateConfirmButton() {
         </div>
     </div>
 
-    <button class="seat-button" onclick="window.location.href = 'food.html';">CONFIRM</button>
+    <button class="seat-button">CONFIRM</button>
+
+
+
+
+    <section class="feeback-login">
+      <div class="box-login">
+       
+          <div class="box">
+              <div class="tick">
+                  <img src="component/error.png" alt="">
+              <h4>Sorry, please select seats to proceed</h4>
+              </div>
+              
+              <button><a href="seat.html">OK</a></button>
+          </div>
+      </div>
+    </section>
+
+
 
 </body>
 

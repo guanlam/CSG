@@ -194,12 +194,13 @@
           <div>
             <label for="securityCode">Security Code:</label>
             <input type="text" id="securityCode" placeholder="123" required>
+          
           </div>
         </div>
 
 
       </div>
-      <button><a onclick="feebackLogin();">Confirm</a></button>
+      <button class="confirm-button"><a>Confirm</a></button>
     </div>
   </section>
 
@@ -218,6 +219,21 @@
     </div>
   </section>
 
+  <section class="feeback-login2">
+    <div class="box-login">
+     
+        <div class="box">
+            <div class="tick">
+                <img src="component/fail.png" alt="">
+            <h4>Payment Failed</h4>
+            </div>
+            
+            <button><a href="pay.html">OK</a></button>
+        </div>
+    </div>
+  </section>
+
+
 
 
 
@@ -233,6 +249,11 @@
     //payment successfull
     function feebackLogin(){
        const feedbackLoginSection = document.querySelector('.feeback-login');
+    feedbackLoginSection.style.display = 'block'; 
+    }
+    // payment failed
+    function feebackLogin2(){
+       const feedbackLoginSection = document.querySelector('.feeback-login2');
     feedbackLoginSection.style.display = 'block'; 
     }
     
@@ -343,6 +364,35 @@
 
     });
 
+
+
+
+
+
+    const confirmButton = document.querySelector('.confirm-button');
+  const cardholderNameInput = document.getElementById('cardholderName');
+  const cardNumberInput = document.getElementById('cardNumber');
+  const expirationDateInput = document.getElementById('expirationDate');
+  const securityCodeInput = document.getElementById('securityCode');
+
+  confirmButton.addEventListener('click', function () {
+    // Check if any of the card input fields are empty
+    if (
+      cardholderNameInput.value.trim() === '' ||
+      cardNumberInput.value.trim() === '' ||
+      expirationDateInput.value.trim() === '' ||
+      securityCodeInput.value.trim() === ''
+    ) {
+      feebackLogin2();
+    } else {
+      // Perform the desired actions on button click
+      // For example, you can call your existing "feebackLogin()" function here
+      feebackLogin();
+
+      // Prevent default form submission behavior
+      return false;
+    }
+  });
 
 
 
