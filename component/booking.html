@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="nav/nav.css">
+  <link rel="stylesheet" href="booking.css">
+  <link rel="stylesheet" href="nav/nav.css">
+  <title>Document</title>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      // fetch('nav/nav.html')
+      //     .then(response => response.text())
+      //     .then(html => {
+      //         document.querySelector('nav').innerHTML = html;
+      //     });
+
+      // Retrieve stored movie title and image from localStorage
+      const selectedMovieTitle = localStorage.getItem('selectedMovieTitle');
+      const selectedMovieImage = localStorage.getItem('selectedMovieImage');
+
+      // Set the retrieved values to the elements on the booking page
+      const movieTitleElement = document.getElementById('selectedMovieTitle');
+      movieTitleElement.textContent = selectedMovieTitle;
+
+      const movieImageElement = document.getElementById('selectedMovieImage');
+      movieImageElement.src = selectedMovieImage;
+
+
+
+
+
+      const bookingForm = document.getElementById('bookingForm'); // Change to your form's ID
+
+bookingForm.addEventListener('submit', (event) => {
+  const selectedDate = new Date(document.getElementById('selectDate').value);
+  const currentDate = new Date();
+
+  // Get day, month, and year values of the selected date and current date
+  const selectedDay = selectedDate.getDate();
+  const selectedMonth = selectedDate.getMonth();
+  const selectedYear = selectedDate.getFullYear();
+
+  const currentDay = currentDate.getDate();
+  const currentMonth = currentDate.getMonth();
+  const currentYear = currentDate.getFullYear();
+
+
+  const invalidDate = document.querySelector('.invalid');
+  // Compare only the day, month, and year values
+  if (
+    selectedYear < currentYear ||
+    (selectedYear === currentYear && selectedMonth < currentMonth) ||
+    (selectedYear === currentYear && selectedMonth === currentMonth && selectedDay < currentDay)
+  ) {
+    invalidDate.style.display = 'block';
+    // alert("Please select a date after today.");
+    event.preventDefault(); // Prevent form submission if the date is invalid
+  } else {
+    // Proceed to the next step (e.g., navigate to the seat.html)
+    const selectedLocation = document.getElementById('selectLocation').value;
+    localStorage.setItem('selectedLocation', selectedLocation);
+
+    const selectedDateTime = document.getElementById('selectDate').value + ' ' +
+                            document.getElementById('selectTime').value;
+    localStorage.setItem('selectedDateTime', selectedDateTime);
+    window.location.href = 'seat.html';
+  }
+});
+
+
+      
+    });
+
+
+
+
+    function toggleInvalid() {
+  const feedbackLoginSection = document.querySelector('.invalid');
+  feedbackLoginSection.style.display = feedbackLoginSection.style.display === 'block' ? 'none' : 'block';
+}
+
+  </script>
+</head>
+
+<body>
+  <nav>
+    <div class="left">
+      <a href="index.html">
+        <img class="logo" src="component/logo.png" alt="">
+      </a>
+      <ul>
+        <li><a href="index.html">Movies</a></li>
+        <li><a href="about.html">About</a></li>
+
+      </ul>
+    </div>
+
+    <div class="right">
+      <a href="signIn.html">
+        <div class="signIn">SIGN IN</div>
+      </a>
+      <div><a href="">
+          <img class="search" src="component/search.png" alt="">
+        </a></div>
+    </div>
+  </nav>
+
+  <section class="flowBox">
+    <div class="flowOrder">
+      <div class="status"> &#x2713;</div>
+      <div class="text">
+        <h5>Login</h5>
+      </div>
+    </div>
+    <div class="line">
+      <hr>
+    </div>
+    <div class="flowOrder">
+      <div class="status"> 2</div>
+      <div class="text">
+        <h5>Select</h5>
+      </div>
+    </div>
+    <div class="line">
+      <hr>
+    </div>
+    <div class="flowOrder">
+      <div class="status">3</div>
+      <div class="text">
+        <h5>Seat</h5>
+      </div>
+    </div>
+    <div class="line">
+      <hr>
+    </div>
+    <div class="flowOrder">
+      <div class="status">4</div>
+      <div class="text">
+        <h5>food</h5>
+      </div>
+    </div>
+
+    <div class="line">
+      <hr>
+    </div>
+    <div class="flowOrder">
+      <div class="status">5</div>
+      <div class="text">
+        <h5>Pay</h5>
+      </div>
+    </div>
+
+    <div class="line">
+      <hr>
+    </div>
+    <div class="flowOrder">
+      <div class="status">6</div>
+      <div class="text">
+        <h5>Receipt</h5>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="booking-container">
+
+    <a href="index.html"><button class="return"><img src="component/return.png" alt=""></button>
+    </a>
+    <div class="left">
+      <!-- Display the selected movie image -->
+      <img id="selectedMovieImage" src="" alt="Selected Movie Image">
+      <!-- Display the selected movie title -->
+      <h3 id="selectedMovieTitle"></h3>
+      <!-- ... other booking form elements ... -->
+    </div>
+
+    <div class="right">
+      <form id="bookingForm" action="seat.html">
+        <label for="selectDate">Select Date:</label>
+        <input type="date" id="selectDate" name="selectDate" required><br>
+
+        <label for="selectLocation">Select Location:</label>
+        <select id="selectLocation" name="selectLocation" required>
+          <option value="Kuala Lumpur - Mid Valley Megamall">Kuala Lumpur - Mid Valley Megamall</option>
+          <option value="Kuala Lumpur - LaLaport BBCC">Kuala Lumpur - LaLaport BBCC</option>
+          <option value="Kuala Lumpur - Berjaya Times Square">Kuala Lumpur - Berjaya Times Square</option>
+          <option value="Kuala Lumpur - EkoCheras Mall">Kuala Lumpur - EkoCheras Mall</option>
+          <option value="Kuala Lumpur - MyTown">Kuala Lumpur - MyTown</option>
+          <option value="Kuala Lumpur - Setapak Central">Kuala Lumpur - Setapak Central</option>
+          <!-- Add more options as needed -->
+        </select><br>
+
+        <label for="selectTime">Select Time:</label>
+        <select id="selectTime" name="selectTime" required>
+          <option value="10:30 AM">10:30 AM</option>
+          <option value="12:35 PM">12:35 PM</option>
+          <option value=">02:40 PM">02:40 PM</option>
+          <option value="06:50 PM">06:50 PM</option>
+          <option value="08:55 PM">08:55 PM</option>
+          <option value="11:00 PM">11:00 PM</option>
+          <!-- Add more options as needed -->
+        </select><br>
+
+        <input type="submit" value="Seat" class="booking-button">
+      </form>
+    </div>
+
+  </div>
+
+  <section class="invalid">
+    <div class="invalid-date">
+     
+        <div class="box">
+            <div class="tick">
+                <img src="component/error.png" alt="">
+            <h4>Please select a date from today onwards.</h4>
+            </div>
+            
+            <button onclick="toggleInvalid()"><a>OK</a></button>
+        </div>
+    </div>
+  </section>
+
+
+</body>
+
+</html>

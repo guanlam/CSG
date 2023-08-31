@@ -1,0 +1,247 @@
+.successful{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 998;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    
+  }
+
+  
+  
+    .box-successful{
+     
+  
+      position:absolute; 
+      top: 40%;
+      left:50%; 
+      transform:translate(-50%,-50%);
+      
+      flex-direction: column;
+      width: 60vw;
+      height: 70vh;
+      margin: calc(2rem + 2%) auto ;
+      background-color:white;
+    }
+.box-content{
+    display: flex;
+    height: 100%;
+    width: 100%;
+position: relative;
+    flex-direction: column;
+    
+}
+.box-content .up{
+    flex: .1;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid;
+
+}
+
+.box-content .up a:last-child{
+    border-bottom: 2px solid orange;
+    color: orange;
+}
+.box-content a{
+    text-decoration: none;
+    margin: 0 4%;
+   color: black;
+   
+}
+
+
+
+.box-content .down{
+    flex: .9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+   
+    
+}
+   
+
+.signUp{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+    /* background-color: antiquewhite; */
+
+ 
+    
+}
+
+.submitCss{
+    margin-top: 1rem;
+    padding: .5rem 0;
+    background-color: orange;
+    color: white;
+    border: none;
+   cursor: pointer;
+}
+.submitCss:hover{
+    opacity: .5;
+}
+
+
+
+button.return{
+    position: absolute;
+    top: 2%;
+    left: 3%;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+}
+button.return img{
+    height: 100%;
+    width: 100%;
+}
+
+  
+
+
+.feeback-login{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+.box-login{
+    display: none;
+    position:absolute; 
+      top: 40%;
+      left:50%; 
+      transform:translate(-50%,-50%);
+      
+      flex-direction: column;
+      width: 35vw;
+      height: 45vh;
+      margin: calc(1rem + 2%) auto ;
+      background-color:white;
+      
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+
+.box-login .box{
+    display: flex;
+    align-items: center;
+    
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+   
+}
+.box-login .box button{
+    width: 100%;
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: clamp(.3rem,2.5vw,.5rem) 0;
+}
+.box-login .box button a{
+    text-decoration: none;
+    color: white;
+    
+}
+.box-login .box button:hover{
+    opacity: .5;
+}
+
+.box .tick{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+
+
+
+/* faild icon */
+.invalid{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+.invalid-date{
+    display: none;
+    position:absolute; 
+      top: 40%;
+      left:50%; 
+      transform:translate(-50%,-50%);
+      
+      flex-direction: column;
+      width: 50vw;
+      height: 60vh;
+      margin: calc(1rem + 2%) auto ;
+      background-color:white;
+      
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+
+.invalid-date .box{
+    display: flex;
+    align-items: center;
+    
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+   
+}
+.invalid-date .box button{
+    width: 100%;
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: clamp(.3rem,2.5vw,.5rem) 0;
+}
+.invalid-date .box button a{
+    text-decoration: none;
+    color: white;
+    
+}
+.invalid-date .box button:hover{
+    opacity: .5;
+}
+
+.box .tick{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}

@@ -1,0 +1,175 @@
+/* flow */
+section.flowBox{
+    margin: calc( 1rem + 5%) auto;
+    display: flex;
+    width: 60%;
+    align-items: center;
+    
+    justify-content: center;
+  }
+  
+  .flowOrder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-basis: 15%;
+    /* background-color: aquamarine; */
+    
+  }
+  
+  .flowOrder .status{
+   
+    color: black;
+    padding: .5rem .8rem;
+    border-radius: 50%;
+    margin-bottom: .5rem;
+
+    border: 1px solid;
+  }
+  .flowOrder:nth-child(1) .status,
+  .flowOrder:nth-child(3) .status,
+  .flowOrder:nth-child(5) .status,
+  .flowOrder:nth-child(7) .status
+   {
+      /* background-color: var(--main-color); */
+      color: white;
+      background-color: orange;
+     
+  }
+  .flowOrder:nth-child(1) .text h5,
+  .flowOrder:nth-child(3) .text h5,
+  .flowOrder:nth-child(5) .text h5,
+  .flowOrder:nth-child(7) .text h5{
+ 
+    color: orange;
+  }
+  
+  .line{
+    
+    width: 100%;
+    
+  }
+
+
+
+  section.food{
+    display: flex;
+    
+    justify-content: center;
+    margin-bottom: 4rem;
+    position: relative;
+   
+  }
+
+  section.food .return{
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 5%;
+    left: 20%;
+    cursor: pointer;
+  }
+  section.food .return img{
+    width: clamp(2rem,2.5vw,3rem);
+    height: clamp(2rem,2.5vw,3rem);
+    
+  }
+
+
+  
+  section.food .wrap-food{
+    display: flex;
+    
+   
+  }
+ 
+
+
+  .container-food{
+    padding: 1% 5%;
+    display: flex;
+    align-items: center;
+    
+    
+    
+  }
+.qty-food{
+    display: flex;
+    align-items: center;
+}
+
+.qty-food button{
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: clamp(.1rem,2.5vw,.2rem) clamp(.2rem,2.5vw,.4rem) ;
+    margin: 0 .3rem;    
+}
+  .container-food img{
+    height: 250px;
+    width: 250px;
+  }
+  
+  /* .title-food{
+    margin: 0 2%;
+  } */
+
+ 
+ .wrap-food{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    /* margin: 0 5%; */
+    /* background-color: antiquewhite; */
+    padding: clamp(.1rem,2.5vw,3rem);
+    
+  }
+  /* .wrap-total{
+    margin: 0 5%;
+  
+  }
+  */
+
+
+  .seat-button{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: orange;
+    width: 100%;
+    /* height: 10%; */
+    border: none;
+    color: white;
+    padding: 1rem 0;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.seat-button:hover{
+    opacity: .5;
+}
+
+
+button{
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    section.food .wrap-food{
+        flex-direction: column;
+    }
+    .container-food img{
+        height: 150px;
+        width: 150px;
+      }
+
+      section.food .return {
+        top: 0%;
+        left: 1rem;
+  }
+
+
+}

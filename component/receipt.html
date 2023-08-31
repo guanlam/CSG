@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="nav/nav.css">
+    <link rel="stylesheet" href="receipt.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;1,500&family=Roboto:wght@500&display=swap"
+        rel="stylesheet">
+
+
+
+
+
+</head>
+
+<body>
+    <nav>
+        <div class="left">
+            <a href="index.html">
+                <img class="logo" src="component/logo.png" alt="">
+            </a>
+            <ul>
+                <li><a href="index.html">Movies</a></li>
+                <li><a href="about.html">About</a></li>
+
+            </ul>
+        </div>
+
+        <div class="right">
+            <a href="../signIn.html">
+                <div class="signIn">SIGN IN</div>
+            </a>
+            <div><a href="">
+                    <img class="search" src="component/search.png" alt="">
+                </a></div>
+        </div>
+    </nav>
+
+
+    <section class="flowBox">
+        <div class="flowOrder">
+            <div class="status"> &#x2713;</div>
+            <div class="text">
+                <h5>Login</h5>
+            </div>
+        </div>
+        <div class="line">
+            <hr>
+        </div>
+        <div class="flowOrder">
+            <div class="status"> &#x2713;</div>
+            <div class="text">
+                <h5>Select</h5>
+            </div>
+        </div>
+        <div class="line">
+            <hr>
+        </div>
+        <div class="flowOrder">
+            <div class="status">&#x2713;</div>
+            <div class="text">
+                <h5>Seat</h5>
+            </div>
+        </div>
+        <div class="line">
+            <hr>
+        </div>
+        <div class="flowOrder">
+            <div class="status">&#x2713;</div>
+            <div class="text">
+                <h5>food</h5>
+            </div>
+        </div>
+
+        <div class="line">
+            <hr>
+        </div>
+        <div class="flowOrder">
+            <div class="status">&#x2713;</div>
+            <div class="text">
+                <h5>Pay</h5>
+            </div>
+        </div>
+
+        <div class="line">
+            <hr>
+        </div>
+        <div class="flowOrder">
+            <div class="status">6</div>
+            <div class="text">
+                <h5>Receipt</h5>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="receipt-section">
+        <!-- <a href="booking.html"><button class="return"><img src="component/return.png" alt=""></button>
+        </a> -->
+        <div class="qr">
+            <img src="component/qr.png" alt="">
+            <h4>Ticket ID :<span class="randomNumber"></span></h4>
+        </div><br>
+        <div class="qr-info">
+            <div class="time-date">
+                <div class="date">
+                    <h5>Date</h5>
+                    <h4></h4>
+                </div>
+                <div class="time">
+                    <h5>Time</h5>
+                    <h4></h4>
+                </div>
+            </div>
+
+            
+            <div class="cinema">
+                <h5>Cinema</h5>
+                <h4></h4>
+                <h4></h4>
+                <h4></h4>
+            </div>
+
+            
+            <div class="drink-seat">
+                <div class="drink">
+                    <h5>e-Combo</h5>
+                    <h4 id="selectedECombo"></h4>
+                </div>
+                <div class="seat">
+                    <h5>Seat</h5>
+                    <h4></h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <button class="receipt-button" onclick="window.location.href = 'index.html';">OK</button>
+
+
+
+
+
+    <script>
+        // Generate a random number for the ticket ID
+        function generateRandomNumber() {
+            return Math.floor(Math.random() * 1000000000); // Adjust the range as needed
+        }
+
+        // Display the random number as the ticket ID
+        function displayTicketID() {
+            const randomNumberElement = document.querySelector('.randomNumber');
+            const randomNumber = generateRandomNumber();
+            randomNumberElement.textContent = randomNumber;
+        }
+
+        // Call the function to display the ticket ID
+        displayTicketID();
+
+        window.addEventListener('DOMContentLoaded', () => {
+            // Retrieve the selected movie title, location, and date time
+            const selectedMovieTitle = localStorage.getItem('selectedMovieTitle');
+            const selectedLocation = localStorage.getItem('selectedLocation');
+            const selectedDateTime = localStorage.getItem('selectedDateTime');
+
+            console.log(selectedDateTime);
+            // Retrieve the selected seats from local storage
+            const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats')) || [];
+            const selectedSeatsElement = document.querySelector('.seat h4');
+            selectedSeatsElement.textContent = selectedSeats.join(', ');
+
+
+
+            // Display the selected movie title, location, and date time
+            document.querySelector('.cinema h4:nth-child(2)').textContent = selectedMovieTitle;
+            document.querySelector('.cinema h4:nth-child(3)').textContent = selectedLocation;
+            document.querySelector('.cinema h4:nth-child(4)').textContent = "Hall -8";
+
+            // Display the selected e-Combo (drink) and seat
+            document.querySelector('.drink h4').textContent = selectedECombo;
+            document.querySelector('.seat h4').textContent = selectedSeats.join(', ');
+
+            // Separate date and time from selectedDateTime
+            const dateTimeParts = selectedDateTime.split(' ');
+            const selectedDate = dateTimeParts[0];
+            const selectedTime = dateTimeParts[1] + ' ' + dateTimeParts[2];
+
+            // Display the separated date and time
+            document.querySelector('.date h4').textContent = selectedDate;
+            document.querySelector('.time h4').textContent = selectedTime;
+
+            // Update your JavaScript code
+            const selectedFoodQuantity = parseInt(localStorage.getItem('selectedFoodQuantity')) || 0;
+            const selectedDrinkQuantity = parseInt(localStorage.getItem('selectedDrinkQuantity')) || 0;
+
+            // Display the selected quantities of popcorn and drinks
+            const selectedEComboElement = document.getElementById('selectedECombo');
+            const selectedEComboText = [];
+            if (selectedFoodQuantity > 0) {
+                selectedEComboText.push(`${selectedFoodQuantity} Popcorn(s)`);
+            }
+            if (selectedDrinkQuantity > 0) {
+                selectedEComboText.push(`${selectedDrinkQuantity} Drink(s)`);
+            }
+            selectedEComboElement.textContent = selectedEComboText.join(', ');
+
+
+        });
+    </script>
+
+</body>
+
+</html>

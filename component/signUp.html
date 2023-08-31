@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="nav/nav.css">
+    <link rel="stylesheet" href="signIn.css">
+    <link rel="stylesheet" href="home.css">
+    <title>Document</title>
+
+    <!-- <script defer src="signIn.js"></script> -->
+
+    <script>
+      //   window.addEventListener('DOMContentLoaded', () => {
+      //      fetch('nav/nav.html')
+      //          .then(response => response.text())
+      //          .then(html => {
+      //              document.querySelector('nav').innerHTML = html;
+      //          });
+      //  });
+
+      document.addEventListener('DOMContentLoaded', function () {
+    const registrationForm = document.getElementById('registrationForm');
+
+    registrationForm.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        const name = document.getElementById('name').value;
+        const phoneNumber = document.getElementById('phoneNumber').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        // Additional validation can be done here
+
+        // Create an object to store the user data
+        const userData = {
+            name: name,
+            phoneNumber: phoneNumber,
+            email: email,
+            password: password
+        };
+
+        // Convert the object to a JSON string
+        const userDataJSON = JSON.stringify(userData);
+
+        // Store the user data in local storage
+        localStorage.setItem('userData', userDataJSON);
+
+        // You can also send the data to a server using AJAX or fetch if needed
+
+        // Display a success message or redirect the user
+        alert('Sign-up successful! You can now sign in.');
+
+        // Reset the form
+        registrationForm.reset();
+    });
+});
+
+
+      
+
+   </script>
+   <style>
+    
+
+
+   </style>
+</head>
+<body>
+  <nav>
+    <div class="left">
+      <a href="index.html">
+        <img class="logo" src="component/logo.png" alt="">
+      </a>
+      <ul>
+        <li><a href="index.html">Movies</a></li>
+        <li><a href="about.html">About</a></li>
+
+      </ul>
+    </div>
+   
+    <div class="right">
+        <a href="signIn.html">
+            <div class="signIn">SIGN IN</div>
+        </a>
+        <div><a href="">
+            <img class="search" src="component/search.png" alt="">
+        </a></div>
+    </div>
+</nav>
+
+
+
+    <div class="movieContainer">
+        <h3>Now showing</h3>
+
+        <section class="top-product">
+           
+            <div class="product-width">
+              <div class="main-scroll-div">
+
+                <div class="card">
+                  <div class="content">
+                    <div class="card-img">
+      
+                      <img src="moviePoster/movie1.webp">
+                      <div class="title">The Marvels</div>
+                      <div class="duration">2h 15m</div>
+      
+      
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="card">
+                  <div class="content">
+                    <div class="card-img">
+      
+                      <img src="moviePoster/movie2.webp">
+                      <div class="title">The Conjuring</div>
+                      <div class="duration">2h 10m</div>
+      
+      
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="card">
+                  <div class="content">
+                    <div class="card-img">
+      
+                      <img src="moviePoster/movie3.webp">
+                      <div class="title">Death Notice</div>
+                      <div class="duration">2h 30m</div>
+      
+                    </div>
+                  </div>
+                </div>
+      
+      
+                <div class="card">
+                  <div class="content">
+                    <div class="card-img">
+      
+                      <img src="moviePoster/movie4.webp">
+                      <div class="title">The Equalizer 3</div>
+                      <div class="duration">2h 20m</div>
+      
+      
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="card">
+                  <div class="content">
+                    <div class="card-img">
+      
+                      <img src="moviePoster/movie5.jpg">
+                      <div class="title">Trolls Band Together</div>
+                      <div class="duration">1h 45m</div>
+      
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="card">
+                  <div class="content">
+                    <div class="card-img">
+      
+                      <img src="moviePoster/movie6.jpg">
+                      <div class="title">The Dark Knight</div>
+                      <div class="duration">2h 32m</div>
+      
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="content">
+                    <div class="card-img">
+      
+                      <img src="moviePoster/movie7.jpg">
+                      <div class="title">The Nun 2</div>
+                      <div class="duration">2h 5m</div>
+      
+                    </div>
+                  </div>
+                </div>
+</div>
+    </div>
+    
+        <section class="successful">
+    
+            <div class="box-successful">
+             
+              <div class="box-content">
+                <button class="return"><a href="index.html"><img src="component/return.png" alt=""></button>
+               </a>
+                <div class="up">
+                    <a href="signIn.html">Sign In</a>
+                    <a href="signUp.html">Sign Up</a>
+                </div>
+                
+                <div class="down">
+                    <form id="registrationForm" class="signUpForm">
+                        <div class="signUp">
+                          <br>
+                            <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required><br>
+                        
+                        <label for="phoneNumber">Phone Number</label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" required><br>
+                        
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required><br>
+                        
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required><br>
+                        
+                        <label for="retypePassword">Retype Password</label>
+                        <input type="password" id="retypePassword" name="retypePassword" required>
+                        
+                        <input type="submit" value="SUMBIT" class="submitCss">
+                        </div>
+                        
+                    </form>
+                </div>
+
+                
+            
+          
+              </div>
+              
+            </div>
+            
+          </section>
+          
+   
+
+
+   
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="home.css"> -->
+  <link rel="stylesheet" href="nav/nav.css">
+  <link rel="stylesheet" href="pay.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <nav>
+    <div class="left">
+      <a href="index.html">
+        <img class="logo" src="component/logo.png" alt="">
+      </a>
+      <ul>
+        <li><a href="index.html">Movies</a></li>
+        <li><a href="about.html">About</a></li>
+
+      </ul>
+    </div>
+
+    <div class="right">
+      <a href="signIn.html">
+        <div class="signIn">SIGN IN</div>
+      </a>
+      <div><a href="">
+          <img class="search" src="component/search.png" alt="">
+        </a></div>
+    </div>
+  </nav>
+
+  <section class="flowBox">
+    <div class="flowOrder">
+      <div class="status"> &#x2713;</div>
+      <div class="text">
+        <h5>Login</h5>
+      </div>
+    </div>
+    <div class="line">
+      <hr>
+    </div>
+    <div class="flowOrder">
+      <div class="status"> &#x2713;</div>
+      <div class="text">
+        <h5>Select</h5>
+      </div>
+    </div>
+    <div class="line">
+      <hr>
+    </div>
+    <div class="flowOrder">
+      <div class="status">&#x2713;</div>
+      <div class="text">
+        <h5>Seat</h5>
+      </div>
+    </div>
+    <div class="line">
+      <hr>
+    </div>
+    <div class="flowOrder">
+      <div class="status">&#x2713;</div>
+      <div class="text">
+        <h5>food</h5>
+      </div>
+    </div>
+
+    <div class="line">
+      <hr>
+    </div>
+    <div class="flowOrder">
+      <div class="status">5</div>
+      <div class="text">
+        <h5>Pay</h5>
+      </div>
+    </div>
+
+    <div class="line">
+      <hr>
+    </div>
+    <div class="flowOrder">
+      <div class="status">6</div>
+      <div class="text">
+        <h5>Receipt</h5>
+      </div>
+    </div>
+
+  </section>
+
+
+
+  <section class="info">
+    <a href="food.html">
+      <button class="return">
+        <img src="component/return.png" alt="">
+      </button>
+    </a>
+    <div class="left">
+      <div class="movie-info">
+        <h2 id="selectedMovieTitle" style="font-size: 1.1rem;"></h2>
+        <p id="movieDetails"></p>
+        <br>
+        <p id="selectedLocation"></p>
+        <p id="selectedHall"></p>
+        <p id="selectedDateTime"></p>
+      </div>
+    </div>
+    <div class="right">
+      <!-- ... content for the right section ... -->
+      <div class="movie-info2">
+        <h2>Payment Details</h2><br>
+        <div class="flex">
+          <p>Selected Seats: </p>
+          <span id="selectedSeats"></span>
+        </div>
+
+        <div class="flex">
+          <p>Ticket :</p>
+          <span id="quantityTicket"></span>
+        </div>
+
+        <div class="flex">
+          <p>Subtotal :</p>
+          <p id="totalCost"></p> <!-- Display the total cost of seats -->
+        </div>
+
+        <!-- <p id="totalTicketPrice"></p> -->
+        <div class="flex">
+          <p>Selected Food & Drink Items: </p>
+          <span id="selectedItems"></span>
+        </div>
+
+        <div class="flex">
+          <p>Subtotal :</p>
+          <p id="totalFoodDrink"></p>
+        </div>
+
+
+        <div class="flex">
+          <p>Total Payment :</p>
+          <p id="totalPayment"></p> <!-- Display the total payment including seats, food, and drink -->
+        </div>
+
+
+
+
+      </div>
+    </div>
+  </section>
+
+  <button class="pay-button" onclick="cardPayment();">PAY</button>
+
+
+  <section class="card-payment">
+    <div class="box-payment">
+
+<div class="return-icon">
+          <a href="food.html">
+            <button class="return-payment">
+              <img src="component/return.png" alt="">
+            </button>
+          </a>
+        </div>
+        <div class="top">
+          <div class="top-left">
+             <input type="radio" checked>
+          <h3>Credit card / debit card</h3>
+          </div>
+          <div class="top-right"> 
+            <img src="component/visa.png" alt="">
+            <img src="component/mastercard.png" alt="">
+          </div>
+         
+         
+        </div>
+        
+
+      <div class="box">
+        
+        <label for="cardholderName">Cardholder Name:</label>
+        <input type="text" id="cardholderName" placeholder="John Doe" required><br>
+
+        <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required><br>
+
+        <div class="flex-payment">
+          <div>
+            <label for="expirationDate">Expiration Date:</label>
+            <input type="text" id="expirationDate" placeholder="MM/YY" required>
+          </div>
+          <div>
+            <label for="securityCode">Security Code:</label>
+            <input type="text" id="securityCode" placeholder="123" required>
+          
+          </div>
+        </div>
+
+
+      </div>
+      <button class="confirm-button"><a>Confirm</a></button>
+    </div>
+  </section>
+
+
+  <section class="feeback-login">
+    <div class="box-login">
+     
+        <div class="box">
+            <div class="tick">
+                <img src="component/tick.png" alt="">
+            <h4>Payment Successful</h4>
+            </div>
+            
+            <button><a href="receipt.html">OK</a></button>
+        </div>
+    </div>
+  </section>
+
+  <section class="feeback-login2">
+    <div class="box-login">
+     
+        <div class="box">
+            <div class="tick">
+                <img src="component/fail.png" alt="">
+            <h4>Payment Failed</h4>
+            </div>
+            
+            <button><a href="pay.html">OK</a></button>
+        </div>
+    </div>
+  </section>
+
+
+
+
+
+
+  <script>
+    function cardPayment() {
+      const feedbackLoginSection = document.querySelector('.card-payment');
+      feedbackLoginSection.style.display = 'block';
+    }
+
+
+
+    //payment successfull
+    function feebackLogin(){
+       const feedbackLoginSection = document.querySelector('.feeback-login');
+    feedbackLoginSection.style.display = 'block'; 
+    }
+    // payment failed
+    function feebackLogin2(){
+       const feedbackLoginSection = document.querySelector('.feeback-login2');
+    feedbackLoginSection.style.display = 'block'; 
+    }
+    
+
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const selectedMovieTitle = localStorage.getItem('selectedMovieTitle');
+
+      const selectedMovieDuration = localStorage.getItem('selectedMovieDuration');
+      const selectedLocation = localStorage.getItem('selectedLocation');
+
+      const selectedDateTime = localStorage.getItem('selectedDateTime');
+
+
+
+
+      const movieTitleElement = document.getElementById('selectedMovieTitle');
+      movieTitleElement.textContent = selectedMovieTitle;
+
+      const movieDetailsElement = document.getElementById('movieDetails');
+      movieDetailsElement.textContent = `ENG | ${selectedMovieDuration} | 2D`;
+
+      const locationElement = document.getElementById('selectedLocation');
+      locationElement.textContent = selectedLocation;
+
+      const hallElement = document.getElementById('selectedHall');
+      hallElement.textContent = `Hall -8`;
+
+      const dateTimeElement = document.getElementById('selectedDateTime');
+      dateTimeElement.textContent = `${selectedDateTime}`;
+
+
+
+
+
+
+
+
+      const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats')) || [];
+
+      // Display the selected seats on the pay page
+      const selectedSeatsElement = document.getElementById('selectedSeats');
+      if (selectedSeats.length > 0) {
+        selectedSeatsElement.textContent = selectedSeats.join(', ');
+      } else {
+        selectedSeatsElement.textContent = 'No seats selected';
+      }
+
+      // Calculate the total cost based on the number of selected seats
+      const numTickets = selectedSeats.length;
+      const ticketCost = 10; // Cost per ticket
+      const totalCost = numTickets * ticketCost;
+
+
+
+      const quantityTicketElement = document.getElementById('quantityTicket');
+      quantityTicketElement.textContent = `${numTickets} × RM 10`;
+
+
+
+      // Display the total cost
+      const totalCostElement = document.getElementById('totalCost');
+      totalCostElement.textContent = `RM ${totalCost}`;
+
+
+
+
+
+
+
+      // Retrieve selected food and drink quantities from localStorage
+      const selectedFoodQuantity = parseInt(localStorage.getItem('selectedFoodQuantity')) || 0;
+      const selectedDrinkQuantity = parseInt(localStorage.getItem('selectedDrinkQuantity')) || 0;
+
+      // Calculate the total cost of food and drink items
+      const foodPrice = 8; // Price per popcorn
+      const drinkPrice = 6; // Price per drink
+      const totalFoodCost = selectedFoodQuantity * foodPrice;
+      const totalDrinkCost = selectedDrinkQuantity * drinkPrice;
+      const totalFoodAndDrinkCost = totalFoodCost + totalDrinkCost;
+
+      // Calculate the total payment including seats, food, and drink
+      const totalPayment = totalCost + totalFoodAndDrinkCost;
+
+      // Display the total payment
+      const totalPaymentElement = document.getElementById('totalPayment');
+      totalPaymentElement.textContent = `RM ${totalPayment}`;
+
+      // Display the selected food and drink quantities
+      const selectedItemsElement = document.getElementById('selectedItems');
+      if (selectedFoodQuantity > 0 || selectedDrinkQuantity > 0) {
+        const selectedItemsText = [];
+        if (selectedFoodQuantity > 0) {
+          selectedItemsText.push(`${selectedFoodQuantity} Popcorn(s) × RM 8`);
+        }
+        if (selectedDrinkQuantity > 0) {
+          selectedItemsText.push(`${selectedDrinkQuantity} Drink(s) × RM 6`);
+        }
+        selectedItemsElement.textContent = selectedItemsText.join(', ');
+      } else {
+        selectedItemsElement.textContent = 'RM 0';
+      }
+
+      // Display the total food and drink cost
+      const totalFoodAndDrinkCostElement = document.getElementById('totalFoodDrink');
+      totalFoodAndDrinkCostElement.textContent = `RM ${totalFoodAndDrinkCost}`;
+
+
+    });
+
+
+
+
+
+
+    const confirmButton = document.querySelector('.confirm-button');
+  const cardholderNameInput = document.getElementById('cardholderName');
+  const cardNumberInput = document.getElementById('cardNumber');
+  const expirationDateInput = document.getElementById('expirationDate');
+  const securityCodeInput = document.getElementById('securityCode');
+
+  confirmButton.addEventListener('click', function () {
+    // Check if any of the card input fields are empty
+    if (
+      cardholderNameInput.value.trim() === '' ||
+      cardNumberInput.value.trim() === '' ||
+      expirationDateInput.value.trim() === '' ||
+      securityCodeInput.value.trim() === ''
+    ) {
+      feebackLogin2();
+    } else {
+      // Perform the desired actions on button click
+      // For example, you can call your existing "feebackLogin()" function here
+      feebackLogin();
+
+      // Prevent default form submission behavior
+      return false;
+    }
+  });
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>
